@@ -1,4 +1,4 @@
-# Android
+﻿# Android
 *.iml
 .gradle/
 local.properties
@@ -10,7 +10,7 @@ captures/
 *.keystore
 !debug.keystore
 keystore.properties
-google-services.json
+
 release/
 
 # iOS
