@@ -1,0 +1,26 @@
+# Android
+*.iml
+.gradle/
+local.properties
+.idea/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+*.keystore
+!debug.keystore
+keystore.properties
+google-services.json
+release/
+
+# iOS
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.ipa
+Pods/
+.DS_Store
+__MACOSX/
+
+# Zips
+*.zip
