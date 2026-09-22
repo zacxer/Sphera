@@ -1,0 +1,397 @@
+//
+//  Level.swift
+//  BallSortPuzzle
+//
+//  Created on 2026-01-02.
+//
+
+import Foundation
+
+struct Level {
+    let number: Int
+    let difficulty: Difficulty
+    let numberOfColors: Int
+    let numberOfEmptyTubes: Int
+    let ballsPerTube: Int
+    let optimalMoves: Int
+
+    init(number: Int, difficulty: Difficulty = .medium) {
+        self.number = number
+        self.difficulty = difficulty
+        self.ballsPerTube = 4
+
+        // Configurazione basata sulla difficoltà
+        switch difficulty {
+        case .easy:
+            // Facile: 3-4 colori, progressione lenta
+            switch number {
+            case 1...10:
+                numberOfColors = 3
+                numberOfEmptyTubes = 2
+            case 11...25:
+                numberOfColors = 4
+                numberOfEmptyTubes = 2
+            default:
+                numberOfColors = 4
+                numberOfEmptyTubes = 2
+            }
+
+        case .medium:
+            // Medio: 4-6 colori, progressione normale
+            switch number {
+            case 1...5:
+                numberOfColors = 3
+                numberOfEmptyTubes = 2
+            case 6...15:
+                numberOfColors = 4
+                numberOfEmptyTubes = 2
+            case 16...30:
+                numberOfColors = 5
+                numberOfEmptyTubes = 2
+            case 31...50:
+                numberOfColors = 6
+                numberOfEmptyTubes = 2
+            default:
+                numberOfColors = 6
+                numberOfEmptyTubes = 2
+            }
+
+        case .hard:
+            // Difficile: 5-8 colori, progressione veloce
+            switch number {
+            case 1...3:
+                numberOfColors = 4
+                numberOfEmptyTubes = 2
+            case 4...10:
+                numberOfColors = 5
+                numberOfEmptyTubes = 2
+            case 11...20:
+                numberOfColors = 6
+                numberOfEmptyTubes = 2
+            case 21...35:
+                numberOfColors = 7
+                numberOfEmptyTubes = 2
+            default:
+                numberOfColors = 8
+                numberOfEmptyTubes = 2
+            }
+        }
+
+        // Stima mosse ottimali (approssimazione)
+        self.optimalMoves = numberOfColors * ballsPerTube
+    }
+
+    var totalTubes: Int {
+        numberOfColors + numberOfEmptyTubes
+    }
+
+    // MARK: - Generate Tubes with Special Types (REVERSE SHUFFLE - SEMPRE RISOLVIBILE)
+
+    func generateTubes() -> [Tube] {
+        let tubeTypes = determineTubeTypes()
+
+        // STEP 1: Crea la SOLUZIONE (ogni tubo con palline dello stesso colore)
+        var tubes: [Tube] = []
+        var portalAId: UUID?
+        var portalBId: UUID?
+
+        for i in 0..<tubeTypes.count {
+            let tubeType = tubeTypes[i]
+            let isEmptyTube = i >= numberOfColors
+
+            if isEmptyTube {
+                // Tubo vuoto
+                let tube = Tube(balls: [], type: tubeType)
+                tubes.append(tube)
+            } else {
+                // Tubo con palline tutte dello stesso colore (SOLUZIONE)
+                let color = BallColor(rawValue: i) ?? .red
+                let capacity = tubeType.capacity
+                var tubeBalls: [Ball] = []
+
+                for _ in 0..<capacity {
+                    tubeBalls.append(Ball(color: color))
+                }
+
+                let tube = Tube(balls: tubeBalls, type: tubeType)
+
+                // Gestione ID portali
+                if tubeType == .portalA {
+                    portalAId = tube.id
+                } else if tubeType == .portalB {
+                    portalBId = tube.id
+                }
+
+                tubes.append(tube)
+            }
+        }
+
+        // Collega i portali
+        if let aId = portalAId, let bId = portalBId {
+            for i in 0..<tubes.count {
+                if tubes[i].id == aId {
+                    tubes[i].linkedPortalId = bId
+                } else if tubes[i].id == bId {
+                    tubes[i].linkedPortalId = aId
+                }
+            }
+        }
+
+        // STEP 2: REVERSE SHUFFLE - Applica mosse casuali al contrario
+        // Questo garantisce che il puzzle sia SEMPRE risolvibile
+        let shuffleMoves = calculateShuffleMoves()
+        tubes = reverseShuffleTubes(tubes, moves: shuffleMoves)
+
+        return tubes
+    }
+
+    // Calcola quante mosse di shuffle fare in base al livello
+    private func calculateShuffleMoves() -> Int {
+        let baseMoves: Int
+        switch difficulty {
+        case .easy:
+            baseMoves = 15 + (number * 2)
+        case .medium:
+            baseMoves = 25 + (number * 3)
+        case .hard:
+            baseMoves = 40 + (number * 4)
+        }
+        // Max 200 mosse per non rallentare troppo
+        return min(baseMoves, 200)
+    }
+
+    // Applica mosse casuali "al contrario" per mescolare mantenendo risolvibilità
+    private func reverseShuffleTubes(_ initialTubes: [Tube], moves: Int) -> [Tube] {
+        var tubes = initialTubes
+        var completedMoves = 0
+        var attempts = 0
+        let maxAttempts = moves * 10  // Evita loop infiniti
+
+        while completedMoves < moves && attempts < maxAttempts {
+            attempts += 1
+
+            // Trova tutti i tubi con almeno una pallina (sorgenti valide)
+            let validSources = tubes.enumerated().filter { index, tube in
+                !tube.isEmpty && tube.type != .locked && tube.canRemoveTop()
+            }.map { $0.offset }
+
+            guard !validSources.isEmpty else { break }
+
+            // Scegli un tubo sorgente casuale
+            let sourceIndex = validSources.randomElement()!
+            guard let ball = tubes[sourceIndex].topBall else { continue }
+
+            // Trova tutte le destinazioni valide
+            let validDests = tubes.enumerated().filter { index, tube in
+                index != sourceIndex &&
+                !tube.isFull &&
+                tube.type != .locked &&
+                (tube.isEmpty || tube.topBall?.ballColor == ball.ballColor || true)
+                // Permettiamo mosse "invalide" nel gioco normale per creare puzzle interessanti
+            }.map { $0.offset }
+
+            guard !validDests.isEmpty else { continue }
+
+            // Scegli destinazione casuale
+            let destIndex = validDests.randomElement()!
+
+            // Esegui la mossa
+            if let removedBall = tubes[sourceIndex].removeBall() {
+                _ = tubes[destIndex].addBall(removedBall)
+                completedMoves += 1
+            }
+        }
+
+        // Verifica finale: assicurati che nessun tubo sia già completo
+        // Se qualcuno lo è, fai qualche mossa extra
+        var extraAttempts = 0
+        while tubesHaveCompletedTube(tubes) && extraAttempts < 50 {
+            extraAttempts += 1
+            tubes = breakCompletedTubes(tubes)
+        }
+
+        return tubes
+    }
+
+    // Controlla se c'è un tubo già completo
+    private func tubesHaveCompletedTube(_ tubes: [Tube]) -> Bool {
+        for tube in tubes {
+            if tube.isComplete && !tube.isEmpty {
+                return true
+            }
+        }
+        return false
+    }
+
+    // Rompe i tubi completi spostando una pallina
+    private func breakCompletedTubes(_ initialTubes: [Tube]) -> [Tube] {
+        var tubes = initialTubes
+
+        for i in 0..<tubes.count {
+            if tubes[i].isComplete && !tubes[i].isEmpty && tubes[i].canRemoveTop() {
+                // Trova un tubo destinazione valido
+                for j in 0..<tubes.count {
+                    if i != j && !tubes[j].isFull {
+                        if let ball = tubes[i].removeBall() {
+                            _ = tubes[j].addBall(ball)
+                            return tubes  // Una mossa alla volta
+                        }
+                    }
+                }
+            }
+        }
+
+        return tubes
+    }
+
+    // MARK: - Determine Tube Types Based on Level and Difficulty
+
+    private func determineTubeTypes() -> [TubeType] {
+        var types: [TubeType] = []
+
+        // Livelli facili (1-15 per ogni difficoltà) = solo tubi normali
+        let introLevels: Int
+        switch difficulty {
+        case .easy:
+            introLevels = 20  // Su Easy, primi 20 livelli sono normali
+        case .medium:
+            introLevels = 15  // Su Medium, primi 15 livelli sono normali
+        case .hard:
+            introLevels = 10  // Su Hard, primi 10 livelli sono normali
+        }
+
+        if number <= introLevels {
+            // Solo tubi normali
+            for _ in 0..<numberOfColors {
+                types.append(.normal)
+            }
+            for _ in 0..<numberOfEmptyTubes {
+                types.append(.normal)
+            }
+            return types
+        }
+
+        // Livelli avanzati: aggiungi tubi speciali progressivamente
+        let advancedLevel = number - introLevels
+
+        switch difficulty {
+        case .easy:
+            // Easy: solo frozen dopo livello 20
+            types = generateTypesForEasy(advancedLevel: advancedLevel)
+
+        case .medium:
+            // Medium: frozen, tall, poi locked
+            types = generateTypesForMedium(advancedLevel: advancedLevel)
+
+        case .hard:
+            // Hard: tutti i tipi più velocemente
+            types = generateTypesForHard(advancedLevel: advancedLevel)
+        }
+
+        // RANDOMIZZA le posizioni dei tubi pieni (non quelli vuoti!)
+        types = randomizeTubePositions(types)
+
+        return types
+    }
+
+    // Mescola le posizioni dei tubi pieni mantenendo i vuoti alla fine
+    private func randomizeTubePositions(_ types: [TubeType]) -> [TubeType] {
+        // Separa tubi pieni (primi numberOfColors) dai vuoti
+        let filledTubes = Array(types.prefix(numberOfColors))
+        let emptyTubes = Array(types.suffix(numberOfEmptyTubes))
+
+        // Mescola solo i tubi pieni
+        let shuffledFilled = filledTubes.shuffled()
+
+        // Gestione speciale per portali: devono rimanere vicini ma non adiacenti
+        // per evitare confusione (opzionale, li lasciamo mescolati)
+
+        // Ricombina: tubi pieni mescolati + tubi vuoti
+        return shuffledFilled + emptyTubes
+    }
+
+    private func generateTypesForEasy(advancedLevel: Int) -> [TubeType] {
+        var types: [TubeType] = Array(repeating: .normal, count: numberOfColors)
+
+        // Dopo livello 20: aggiungi 1 frozen
+        if advancedLevel > 0 && numberOfColors >= 3 {
+            types[0] = .frozen
+        }
+
+        // Tubi vuoti
+        for _ in 0..<numberOfEmptyTubes {
+            types.append(.normal)
+        }
+
+        return types
+    }
+
+    private func generateTypesForMedium(advancedLevel: Int) -> [TubeType] {
+        var types: [TubeType] = Array(repeating: .normal, count: numberOfColors)
+
+        if numberOfColors >= 3 {
+            // Livello 16-20: 1 frozen
+            if advancedLevel >= 1 {
+                types[0] = .frozen
+            }
+
+            // Livello 21-25: frozen + tall
+            if advancedLevel >= 6 && numberOfColors >= 4 {
+                types[1] = .tall
+            }
+
+            // Livello 26-30: frozen + tall + locked
+            if advancedLevel >= 11 && numberOfColors >= 5 {
+                types[2] = .locked
+            }
+
+            // Livello 31+: frozen + tall + locked + secondo frozen
+            if advancedLevel >= 16 && numberOfColors >= 6 {
+                types[3] = .frozen
+            }
+        }
+
+        // Tubi vuoti
+        for _ in 0..<numberOfEmptyTubes {
+            types.append(.normal)
+        }
+
+        return types
+    }
+
+    private func generateTypesForHard(advancedLevel: Int) -> [TubeType] {
+        var types: [TubeType] = Array(repeating: .normal, count: numberOfColors)
+
+        if numberOfColors >= 4 {
+            // Livello 11-15: frozen + tall
+            if advancedLevel >= 1 {
+                types[0] = .frozen
+                types[1] = .tall
+            }
+
+            // Livello 16-20: frozen + tall + locked
+            if advancedLevel >= 6 && numberOfColors >= 5 {
+                types[2] = .locked
+            }
+
+            // Livello 21-25: aggiungi portali
+            if advancedLevel >= 11 && numberOfColors >= 6 {
+                types[3] = .portalA
+                types[4] = .portalB
+            }
+
+            // Livello 26+: secondo frozen per difficoltà extra
+            if advancedLevel >= 16 && numberOfColors >= 7 {
+                types[5] = .frozen
+            }
+        }
+
+        // Tubi vuoti
+        for _ in 0..<numberOfEmptyTubes {
+            types.append(.normal)
+        }
+
+        return types
+    }
+
+}

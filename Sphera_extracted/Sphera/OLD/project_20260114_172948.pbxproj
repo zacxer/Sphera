@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D33010D2F0A61C1002DB758 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33010C2F0A61C1002DB758 /* AudioManager.swift */; };
+		1D33010F2F0A63BD002DB758 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33010E2F0A63BD002DB758 /* AppEnvironment.swift */; };
+		1D5346E52F08BAAC00A1AE03 /* bgm_neon_drive_02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1D5346E12F08BAAC00A1AE03 /* bgm_neon_drive_02.mp3 */; };
+		1D5346EA2F08BAAC00A1AE03 /* sfx_button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1D5346CE2F08BAAC00A1AE03 /* sfx_button.wav */; };
+		1D5346F22F08BAAC00A1AE03 /* bgm_neon_drive_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1D5346E02F08BAAC00A1AE03 /* bgm_neon_drive_01.mp3 */; };
+		1D5346F72F08BAAC00A1AE03 /* bgm_neon_drive_03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1D5346E22F08BAAC00A1AE03 /* bgm_neon_drive_03.mp3 */; };
+		1D5EAB692F0963B900192010 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EAB682F0963B900192010 /* SplashScreenView.swift */; };
+		1D5EAB6B2F09667900192010 /* SpecialTubeOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EAB6A2F09667900192010 /* SpecialTubeOverlays.swift */; };
+		1D5EAB702F09700000192010 /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EAB6E2F09700000192010 /* PowerUp.swift */; };
+		1D5EAB712F09700000192010 /* PowerUpViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5EAB6F2F09700000192010 /* PowerUpViews.swift */; };
+		1D8CF4022F0A56C700C77691 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1D8CF4012F0A56C700C77691 /* GoogleMobileAds */; };
+		A0000001282B0001 /* BallSortPuzzleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000002282B0001 /* BallSortPuzzleApp.swift */; };
+		A0000003282B0001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000004282B0001 /* ContentView.swift */; };
+		A0000005282B0001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0000006282B0001 /* Assets.xcassets */; };
+		A0000007282B0001 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000008282B0001 /* Ball.swift */; };
+		A0000009282B0001 /* Tube.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000000A282B0001 /* Tube.swift */; };
+		A000000B282B0001 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000000C282B0001 /* GameState.swift */; };
+		A000000D282B0001 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000000E282B0001 /* Level.swift */; };
+		A000000F282B0001 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000010282B0001 /* GameViewModel.swift */; };
+		A0000011282B0001 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000012282B0001 /* MenuView.swift */; };
+		A0000013282B0001 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000014282B0001 /* GameView.swift */; };
+		A0000015282B0001 /* TubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000016282B0001 /* TubeView.swift */; };
+		A0000017282B0001 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000018282B0001 /* ColorExtensions.swift */; };
+		A0000030282B0001 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000031282B0001 /* SettingsManager.swift */; };
+		A0000040282B0001 /* RateAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000041282B0001 /* RateAppManager.swift */; };
+		A0000042282B0001 /* AdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000043282B0001 /* AdManager.swift */; };
+		A0000044282B0001 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000045282B0001 /* BannerAdView.swift */; };
+		A0000050282B0001 /* ShapeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000051282B0001 /* ShapeViews.swift */; };
+		A0000052282B0001 /* ShapesTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000053282B0001 /* ShapesTutorialView.swift */; };
+		A0000060282B0001 /* ATTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000061282B0001 /* ATTManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D33010C2F0A61C1002DB758 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		1D33010E2F0A63BD002DB758 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		1D5346CE2F08BAAC00A1AE03 /* sfx_button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sfx_button.wav; sourceTree = "<group>"; };
+		1D5346E02F08BAAC00A1AE03 /* bgm_neon_drive_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_neon_drive_01.mp3; sourceTree = "<group>"; };
+		1D5346E12F08BAAC00A1AE03 /* bgm_neon_drive_02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_neon_drive_02.mp3; sourceTree = "<group>"; };
+		1D5346E22F08BAAC00A1AE03 /* bgm_neon_drive_03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bgm_neon_drive_03.mp3; sourceTree = "<group>"; };
+		1D5EAB682F0963B900192010 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		1D5EAB6A2F09667900192010 /* SpecialTubeOverlays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialTubeOverlays.swift; sourceTree = "<group>"; };
+		1D5EAB6E2F09700000192010 /* PowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUp.swift; sourceTree = "<group>"; };
+		1D5EAB6F2F09700000192010 /* PowerUpViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUpViews.swift; sourceTree = "<group>"; };
+		1D8CF4032F0A584800C77691 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0000002282B0001 /* BallSortPuzzleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallSortPuzzleApp.swift; sourceTree = "<group>"; };
+		A0000004282B0001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A0000006282B0001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A0000008282B0001 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		A000000A282B0001 /* Tube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tube.swift; sourceTree = "<group>"; };
+		A000000C282B0001 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		A000000E282B0001 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		A0000010282B0001 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		A0000012282B0001 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		A0000014282B0001 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		A0000016282B0001 /* TubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeView.swift; sourceTree = "<group>"; };
+		A0000018282B0001 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		A0000019282B0001 /* BallSortPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallSortPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0000031282B0001 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		A0000041282B0001 /* RateAppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppManager.swift; sourceTree = "<group>"; };
+		A0000043282B0001 /* AdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdManager.swift; sourceTree = "<group>"; };
+		A0000045282B0001 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
+		A0000051282B0001 /* ShapeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeViews.swift; sourceTree = "<group>"; };
+		A0000053282B0001 /* ShapesTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesTutorialView.swift; sourceTree = "<group>"; };
+		A0000061282B0001 /* ATTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATTManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A000001A282B0001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D8CF4022F0A56C700C77691 /* GoogleMobileAds in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D5346DF2F08BAAC00A1AE03 /* Gameplay */ = {
+			isa = PBXGroup;
+			children = (
+				1D5346CE2F08BAAC00A1AE03 /* sfx_button.wav */,
+			);
+			path = Gameplay;
+			sourceTree = "<group>";
+		};
+		1D5346E32F08BAAC00A1AE03 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				1D5346E02F08BAAC00A1AE03 /* bgm_neon_drive_01.mp3 */,
+				1D5346E12F08BAAC00A1AE03 /* bgm_neon_drive_02.mp3 */,
+				1D5346E22F08BAAC00A1AE03 /* bgm_neon_drive_03.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		1D5346E42F08BAAC00A1AE03 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				1D5346DF2F08BAAC00A1AE03 /* Gameplay */,
+				1D5346E32F08BAAC00A1AE03 /* Music */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		A000001B282B0001 = {
+			isa = PBXGroup;
+			children = (
+				1D33010E2F0A63BD002DB758 /* AppEnvironment.swift */,
+				1D5EAB6A2F09667900192010 /* SpecialTubeOverlays.swift */,
+				1D33010C2F0A61C1002DB758 /* AudioManager.swift */,
+				1D5346E42F08BAAC00A1AE03 /* Audio */,
+				A000001C282B0001 /* BallSortPuzzle */,
+				A000001D282B0001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A000001C282B0001 /* BallSortPuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				1D8CF4032F0A584800C77691 /* Info.plist */,
+				A0000002282B0001 /* BallSortPuzzleApp.swift */,
+				A0000004282B0001 /* ContentView.swift */,
+				A000001E282B0001 /* Models */,
+				A000001F282B0001 /* Views */,
+				A0000020282B0001 /* ViewModels */,
+				A0000041282B0001 /* RateAppManager.swift */,
+				A0000043282B0001 /* AdManager.swift */,
+				A0000061282B0001 /* ATTManager.swift */,
+				A0000045282B0001 /* BannerAdView.swift */,
+				A0000006282B0001 /* Assets.xcassets */,
+			);
+			path = BallSortPuzzle;
+			sourceTree = "<group>";
+		};
+		A000001D282B0001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0000019282B0001 /* BallSortPuzzle.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A000001E282B0001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A0000008282B0001 /* Ball.swift */,
+				A000000A282B0001 /* Tube.swift */,
+				A000000C282B0001 /* GameState.swift */,
+				A000000E282B0001 /* Level.swift */,
+				A0000031282B0001 /* SettingsManager.swift */,
+				1D5EAB6E2F09700000192010 /* PowerUp.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A000001F282B0001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A0000012282B0001 /* MenuView.swift */,
+				A0000014282B0001 /* GameView.swift */,
+				A0000016282B0001 /* TubeView.swift */,
+				A0000018282B0001 /* ColorExtensions.swift */,
+				1D5EAB682F0963B900192010 /* SplashScreenView.swift */,
+				1D5EAB6F2F09700000192010 /* PowerUpViews.swift */,
+				A0000051282B0001 /* ShapeViews.swift */,
+				A0000053282B0001 /* ShapesTutorialView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A0000020282B0001 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A0000010282B0001 /* GameViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A0000021282B0001 /* BallSortPuzzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0000022282B0001 /* Build configuration list for PBXNativeTarget "BallSortPuzzle" */;
+			buildPhases = (
+				A0000023282B0001 /* Sources */,
+				A000001A282B0001 /* Frameworks */,
+				A0000024282B0001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BallSortPuzzle;
+			productName = BallSortPuzzle;
+			productReference = A0000019282B0001 /* BallSortPuzzle.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A0000025282B0001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					A0000021282B0001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A0000026282B0001 /* Build configuration list for PBXProject "BallSortPuzzle" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = it;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				it,
+				Base,
+			);
+			mainGroup = A000001B282B0001;
+			packageReferences = (
+				1D8CF4002F0A56C700C77691 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
+			productRefGroup = A000001D282B0001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A0000021282B0001 /* BallSortPuzzle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0000024282B0001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A0000005282B0001 /* Assets.xcassets in Resources */,
+				1D5346E52F08BAAC00A1AE03 /* bgm_neon_drive_02.mp3 in Resources */,
+				1D5346EA2F08BAAC00A1AE03 /* sfx_button.wav in Resources */,
+				1D5346F22F08BAAC00A1AE03 /* bgm_neon_drive_01.mp3 in Resources */,
+				1D5346F72F08BAAC00A1AE03 /* bgm_neon_drive_03.mp3 in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0000023282B0001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D5EAB6B2F09667900192010 /* SpecialTubeOverlays.swift in Sources */,
+				1D5EAB692F0963B900192010 /* SplashScreenView.swift in Sources */,
+				1D5EAB702F09700000192010 /* PowerUp.swift in Sources */,
+				1D33010D2F0A61C1002DB758 /* AudioManager.swift in Sources */,
+				1D5EAB712F09700000192010 /* PowerUpViews.swift in Sources */,
+				1D33010F2F0A63BD002DB758 /* AppEnvironment.swift in Sources */,
+				A0000001282B0001 /* BallSortPuzzleApp.swift in Sources */,
+				A0000003282B0001 /* ContentView.swift in Sources */,
+				A0000007282B0001 /* Ball.swift in Sources */,
+				A0000009282B0001 /* Tube.swift in Sources */,
+				A000000B282B0001 /* GameState.swift in Sources */,
+				A000000D282B0001 /* Level.swift in Sources */,
+				A000000F282B0001 /* GameViewModel.swift in Sources */,
+				A0000011282B0001 /* MenuView.swift in Sources */,
+				A0000013282B0001 /* GameView.swift in Sources */,
+				A0000015282B0001 /* TubeView.swift in Sources */,
+				A0000017282B0001 /* ColorExtensions.swift in Sources */,
+				A0000030282B0001 /* SettingsManager.swift in Sources */,
+				A0000040282B0001 /* RateAppManager.swift in Sources */,
+				A0000042282B0001 /* AdManager.swift in Sources */,
+				A0000044282B0001 /* BannerAdView.swift in Sources */,
+				A0000050282B0001 /* ShapeViews.swift in Sources */,
+				A0000052282B0001 /* ShapesTutorialView.swift in Sources */,
+				A0000060282B0001 /* ATTManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A0000027282B0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 7A4A6UZ7K4;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A0000028282B0001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 7A4A6UZ7K4;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A0000029282B0001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 7A4A6UZ7K4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BallSortPuzzle/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Sphera Puzzle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Questo permesso ci aiuta a mostrarti pubblicita' piu' rilevanti per te.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sphera.puzzlegame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A000002A282B0001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 5;
+				DEVELOPMENT_TEAM = 7A4A6UZ7K4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BallSortPuzzle/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Sphera Puzzle";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Questo permesso ci aiuta a mostrarti pubblicita' piu' rilevanti per te.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sphera.puzzlegame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A0000022282B0001 /* Build configuration list for PBXNativeTarget "BallSortPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0000029282B0001 /* Debug */,
+				A000002A282B0001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0000026282B0001 /* Build configuration list for PBXProject "BallSortPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0000027282B0001 /* Debug */,
+				A0000028282B0001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1D8CF4002F0A56C700C77691 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.14.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1D8CF4012F0A56C700C77691 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1D8CF4002F0A56C700C77691 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A0000025282B0001 /* Project object */;
+}
